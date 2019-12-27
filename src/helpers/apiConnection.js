@@ -1,6 +1,6 @@
 import checkFormat from './checkActivityFormat'
 
-const API = 'http://192.168.10.154:3001/api/'
+const API = 'http://api-mole.lifia.info.unlp.edu.ar/api'
 
 const getActivity = id => fetch(API + `Activities/${id}`).then(
   result => result.json().then(
