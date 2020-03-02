@@ -1,10 +1,10 @@
 {
-  "expoServerPort": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null,
+  "expoServerPort": 19000,
+  "expoServerNgrokUrl": "https://gn-b3f.fedediclaudio.mole-mobile-app.exp.direct",
+  "packagerNgrokUrl": "https://packager.gn-b3f.fedediclaudio.mole-mobile-app.exp.direct",
+  "ngrokPid": 29156,
   "devToolsPort": 19002,
-  "packagerPort": null,
-  "packagerPid": null,
+  "packagerPort": 19001,
+  "packagerPid": 28829,
   "webpackServerPort": null
 }
