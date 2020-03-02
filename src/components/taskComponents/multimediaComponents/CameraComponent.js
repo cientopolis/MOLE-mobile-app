@@ -17,7 +17,7 @@ class CameraComponent extends React.Component {
   snap = async () => {
     if (this.camera) {
       let photo = await this.camera.takePictureAsync()
-      this.props.solveTask(this.props.task, photo.uri)
+      this.props.solveTask(this.props.task, { uri: photo.uri })
       this.props.navigation.navigate('TaskReview')
     }
   }
