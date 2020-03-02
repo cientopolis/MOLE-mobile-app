@@ -8,6 +8,7 @@ import getActivity from '../helpers/apiConnection'
 import { hasCameraPermissionFunction as hasCameraPermission } from '../helpers/permissionAskers'
 import { containerStyle, qrStyle } from '../styles/CameraModalStyles'
 import { setCode } from '../actions/taskActions'
+import { storeActivityFunction as storeActivity } from '../helpers/activitiesStorage'
 
 class CameraModalActivity extends Component {
 
