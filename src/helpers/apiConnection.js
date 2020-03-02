@@ -9,7 +9,7 @@ const getActivity = id => fetch(API + `Activities/${id}`).then(
         tasks => {
           if(checkFormat({...activity, tasks})) {
             return {...activity, tasks}
-          } else {
+            } else {
             throw new Error("Archivo de actividad corrupto")
           }
         }

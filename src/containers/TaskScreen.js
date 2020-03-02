@@ -9,7 +9,7 @@ import {
   FreeAnswer,
 } from '../components/taskComponents'
 import { solveTask } from '../actions/activityActions'
-import CameraComponent from '../components/taskComponents/multimediaPhotoComponents/CameraComponent'
+import CameraComponent from '../components/taskComponents/multimediaComponents/CameraComponent'
 
 //Pantalla de vista de tarea
 class TaskScreen extends Component {
@@ -65,7 +65,7 @@ class TaskScreen extends Component {
             return (
               <TypeError navigation={navigation} />
             )
-        }
+        } 
       default:
         return (
           <TypeError navigation={navigation} />

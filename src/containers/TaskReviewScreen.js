@@ -4,12 +4,15 @@ import { connect } from 'react-redux'
 import {
   MULTIPLE_CHOICE,
   FREE_ANSWER,
+  MULTIMEDIA,
+  IMAGE,
 } from '../constants/taskTypeConstants'
 import {
   MultipleChoiceReview,
   FreeAnswerReview,
   TypeError
 } from '../components/taskReviewComponents'
+import MultimediaPhotoReviewComponent from '../components/taskReviewComponents/multimediaPhotoReviewComponent'
 
 //Pantalla de vista de correccion de tarea
 class ReviewScreen extends Component {
@@ -34,6 +37,13 @@ class ReviewScreen extends Component {
         return (
           <FreeAnswerReview finishedTask={finishedTask} navigation={this.props.navigation}/>
         )
+      case MULTIMEDIA:
+        switch (finishedTask.task.payload.multimedia_type) {
+          case IMAGE:
+            return (
+              <MultimediaPhotoReviewComponent finishedTask={finishedTask} navigation={this.props.navigation}/>
+            )
+        }
       default:
         return (
           <TypeError navigation={this.props.navigation}/>
