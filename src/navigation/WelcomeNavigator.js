@@ -2,7 +2,8 @@ import { createStackNavigator } from 'react-navigation-stack'
 import {
   WelcomeScreen,
   ActivityPickerModal,
-  NewActivityModal
+  NewActivityModal,
+  CameraModalActivity,
 } from '../containers'
 
 //Navegador de pantalla de bienvenida
@@ -16,6 +17,9 @@ const WelcomeNavigator = createStackNavigator(
     },
     NewActivityModal: {
       screen: NewActivityModal,
+    },
+    CameraModalActivity: {
+      screen: CameraModalActivity,
     },
   },
   {

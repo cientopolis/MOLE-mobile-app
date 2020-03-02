@@ -76,7 +76,7 @@ class ActivityPickerModal extends Component {
             keyExtractor={(item, index) => index}
         />  
         <DefaultButton
-          onPress={() => this.props.navigation.navigate('Camera')}
+          onPress={() => this.props.navigation.navigate('CameraModalActivity')}
           title="Cargar nueva actividad"
         />
       </View>
