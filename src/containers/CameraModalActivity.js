@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { StyleSheet, Text, View, Image, TextInput, Alert, KeyboardAvoidingView} from 'react-native'
+import { StyleSheet, Text, View, Image, TextInput, Alert, KeyboardAvoidingView } from 'react-native'
 import { BarCodeScanner } from 'expo-barcode-scanner'
 
 import getActivity from '../helpers/apiConnection'
@@ -23,41 +23,42 @@ class CameraModalActivity extends Component {
     this.setState({ hasCameraPermission: cameraPermission })
   }
 
-    //Guarda el archivo de actividad
-    async saveActivity(activity) {
-      await storeActivity(activity)
-      this.props.navigation.goBack()
-    }
-  
-    //Que hacer cuando se carga una actividad correctamente
-    handleLoadedActivity(activity) {
-      this.setState(() => ({status:'loaded'}))
-      Alert.alert(
-        activity.title,
-        activity.description,
-        [
-          {text: 'Cancelar', style: 'cancel', onPress: () => this.setState({status:'unloaded'})},
-          {text: 'Descargar', onPress: () => this.saveActivity(activity)},
-        ]
-      )
-    }
-  
-    //Obtiene la actividad, chequea que tenga los campos correspondientes y la utiliza como estado del componente
-    loadActivity(id){
-      this.setState(() => ({status:'loading'}))
-      getActivity(id).then(
-        activity => {this.handleLoadedActivity(activity)
-        }
-      ).catch(
-        error => {
-          this.setState(() => ({status:'unloaded'}))
-          Alert.alert(
-            'Error en la carga de la actividad',
-            error.message
-          )
-        }
-      )
-    }
+  //Guarda el archivo de actividad
+  async saveActivity(activity) {
+    await storeActivity(activity)
+    this.props.navigation.goBack()
+  }
+
+  //Que hacer cuando se carga una actividad correctamente
+  handleLoadedActivity(activity) {
+    Alert.alert(
+      activity.title,
+      activity.description,
+      [
+        { text: 'Cancelar', style: 'cancel', onPress: () => this.setState({ status: 'unloaded' }) },
+        { text: 'Descargar', onPress: () => this.saveActivity(activity) },
+      ]
+    )
+    this.setState(() => ({ status: 'loaded' }))
+  }
+
+  //Obtiene la actividad, chequea que tenga los campos correspondientes y la utiliza como estado del componente
+  loadActivity(id) {
+    this.setState(() => ({ status: 'loading' }))
+    getActivity(id).then(
+      activity => {
+        this.handleLoadedActivity(activity)
+      }
+    ).catch(
+      error => {
+        this.setState(() => ({ status: 'unloaded' }))
+        Alert.alert(
+          'Error en la carga de la actividad',
+          error.message
+        )
+      }
+    )
+  }
 
   render() {
 
@@ -92,10 +93,10 @@ class CameraModalActivity extends Component {
 //Funcion que mapea las acciones ('actions/activityActions') con las funciones que llamamos desde el componente
 function mapDispatchToProps(dispatch) {
   return {
-    actions : bindActionCreators({
+    actions: bindActionCreators({
       setCode,
     }, dispatch)
   }
 }
 
-export default connect(null,mapDispatchToProps)(CameraModalActivity)
+export default connect(null, mapDispatchToProps)(CameraModalActivity)

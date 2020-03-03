@@ -1,10 +1,10 @@
 {
-  "expoServerPort": 19000,
-  "expoServerNgrokUrl": "https://ck-9vi.jimmy-themouth.mole-mobile-app.exp.direct",
-  "packagerNgrokUrl": "https://packager.ck-9vi.jimmy-themouth.mole-mobile-app.exp.direct",
-  "ngrokPid": 7866,
+  "expoServerPort": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
   "devToolsPort": 19002,
-  "packagerPort": 19001,
-  "packagerPid": 7840,
+  "packagerPort": null,
+  "packagerPid": null,
   "webpackServerPort": null
 }
