@@ -3,6 +3,8 @@ import { Text, View, TouchableOpacity} from 'react-native'
 import { Camera } from 'expo-camera';
 import { hasCameraPermissionFunction as hasCameraPermission } from '../../../helpers/permissionAskers'
 
+import DefaultButton from '../../defaultButton'
+
 class CameraComponent extends React.Component {
 
   state = {

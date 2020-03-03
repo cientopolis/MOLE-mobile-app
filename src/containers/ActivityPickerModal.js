@@ -77,7 +77,7 @@ class ActivityPickerModal extends Component {
         />  
         <DefaultButton
           onPress={() => this.props.navigation.navigate('CameraModalActivity')}
-          title="Cargar nueva actividad"
+          title="Leer código de actividad"
         />
       </View>
     );

@@ -74,6 +74,10 @@ class CameraModalActivity extends Component {
       <BarCodeScanner
         onBarCodeScanned={this.handleBarCodeScanned}
         style={[StyleSheet.absoluteFill, containerStyle]}>
+        <Image
+          style={qrStyle}
+          source={require('../assets/QRScanner.png')}
+        />
       </BarCodeScanner>
     )
   }
