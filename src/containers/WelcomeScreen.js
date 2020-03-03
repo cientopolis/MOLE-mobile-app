@@ -71,9 +71,17 @@ class WelcomeScreen extends Component {
         <View style={{alignItems:'center'}}>
         <Image source={require('../assets/resuelvo_explorando_logo.png')}/>
         </View>
-        <Text style={descriptionStyle}>{description}</Text>
+        {
+          !ready &&
+          <DefaultButton
+          onPress={() => this.props.navigation.navigate('ActivityPickerModal')}
+          title='Cargar nueva actividad'
+        />
+
+        }
         {
           ready &&
+          <Text style={descriptionStyle}>{description}</Text>&&
           <DefaultButton
             onPress={() => this.props.navigation.navigate('Main')}
             title='Comenzar'

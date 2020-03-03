@@ -3,6 +3,8 @@ import { Text, View, TouchableOpacity} from 'react-native'
 import { Camera } from 'expo-camera';
 import { hasCameraPermissionFunction as hasCameraPermission } from '../../../helpers/permissionAskers'
 
+import DefaultButton from '../../defaultButton'
+
 class CameraComponent extends React.Component {
 
   state = {
@@ -46,12 +48,9 @@ class CameraComponent extends React.Component {
               backgroundColor: 'transparent',
               flexDirection: 'row',
             }}>
-            <TouchableOpacity
-              onPress={() => {
+              <DefaultButton onPress={() => {
                 this.snap()
-              }}>
-              <Text style={{ fontSize: 12, marginBottom: 50, color: 'white', marginRight: '25%', marginLeft: 50 }}> Tomar foto </Text>
-            </TouchableOpacity>
+              }} title='Tomar foto'/>
           </View>
         </Camera>
       </View>
