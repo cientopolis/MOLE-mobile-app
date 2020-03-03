@@ -44,6 +44,7 @@ class CameraModalActivity extends Component {
 
   //Obtiene la actividad, chequea que tenga los campos correspondientes y la utiliza como estado del componente
   loadActivity(id) {
+    if(this.state.status !== 'loading'){
     this.setState(() => ({ status: 'loading' }))
     getActivity(id).then(
       activity => {
@@ -58,6 +59,7 @@ class CameraModalActivity extends Component {
         )
       }
     )
+  }
   }
 
   render() {
