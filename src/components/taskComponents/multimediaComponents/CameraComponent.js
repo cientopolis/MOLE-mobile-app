@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity} from 'react-native'
+import { Text, View, TouchableOpacity } from 'react-native'
 import { Camera } from 'expo-camera';
 import { hasCameraPermissionFunction as hasCameraPermission } from '../../../helpers/permissionAskers'
 
@@ -19,7 +19,7 @@ class CameraComponent extends React.Component {
   snap = async () => {
     if (this.camera) {
       let photo = await this.camera.takePictureAsync()
-      this.props.solveTask({...this.props.task, aswer:{isCorrect:true} }, { uri: photo.uri })
+      this.props.solveTask({ ...this.props.task, aswer: { isCorrect: true } }, { uri: photo.uri })
       this.props.navigation.navigate('TaskReview')
     }
   }
@@ -40,18 +40,19 @@ class CameraComponent extends React.Component {
     }
     return (
       <View style={{ flex: 1 }}>
+        <Text style={{ color: '#000000', backgroundColor: '#FFFFFF', fontSize: 20 }}>{task.payload.slogan}</Text>
         <Camera style={{ flex: 1 }} type={Camera.Constants.Type.back} ref={ref => { this.camera = ref; }}>
-          <Text>{task.payload.slogan}</Text>
           <View
             style={{
               flex: 1,
               backgroundColor: 'transparent',
               flexDirection: 'row',
             }}>
-              <DefaultButton onPress={() => {
-                this.snap()
-              }} title='Tomar foto'/>
           </View>
+          <DefaultButton onPress={() => {
+            this.snap()
+          }} title='Tomar foto'
+            style={{ width: 60 }} />
         </Camera>
       </View>
     );
