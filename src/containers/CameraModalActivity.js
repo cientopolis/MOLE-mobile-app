@@ -26,7 +26,7 @@ class CameraModalActivity extends Component {
   //Guarda el archivo de actividad
   async saveActivity(activity) {
     await storeActivity(activity)
-    this.props.navigation.goBack()
+    this.props.navigation.navigate('Welcome')
   }
 
   //Que hacer cuando se carga una actividad correctamente
@@ -44,6 +44,7 @@ class CameraModalActivity extends Component {
 
   //Obtiene la actividad, chequea que tenga los campos correspondientes y la utiliza como estado del componente
   loadActivity(id) {
+    if(this.state.status !== 'loading'){
     this.setState(() => ({ status: 'loading' }))
     getActivity(id).then(
       activity => {
@@ -58,6 +59,7 @@ class CameraModalActivity extends Component {
         )
       }
     )
+  }
   }
 
   render() {
@@ -83,9 +85,9 @@ class CameraModalActivity extends Component {
     )
   }
 
-  handleBarCodeScanned = ({ type, data }) => {
+   handleBarCodeScanned = ({ type, data }) => {
     this.loadActivity(data)
-    this.props.navigation.navigate('ActivityPickerModal')
+    this.props.navigation.navigate('')
   }
 
 }
