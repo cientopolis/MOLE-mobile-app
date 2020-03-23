@@ -12,7 +12,7 @@ import { Asset } from 'expo-asset';
 import { Audio } from 'expo-av';
 import * as FileSystem from 'expo-file-system';
 import * as Font from 'expo-font';
-import * as Permissions from 'expo-permissions';
+import { hasMicrophonePermissionFunction as hasMicrophonePermission } from '../../../helpers/permissionAskers'
 
 class Icon {
   constructor(module, width, height) {
@@ -71,22 +71,12 @@ const RATE_SCALE = 3.0;
     // this.recordingSettings.android['maxFileSize'] = 12000;
   }
 
-  componentDidMount() {
-    (async () => {
-      await Font.loadAsync({
-        'cutive-mono-regular': require('../../../assets/fonts/CutiveMono-Regular.ttf'),
-      });
-      this.setState({ fontLoaded: true });
-    })();
-    this._askForPermissions();
+  async componentDidMount() {
+    await Font.loadAsync({'cutive-mono-regular': require('../../../assets/fonts/CutiveMono-Regular.ttf')})
+    this.setState({ fontLoaded: true })
+    const recordingPermission = await hasMicrophonePermission()
+    this.setState({ haveRecordingPermissions: recordingPermission, })
   }
-
-  _askForPermissions = async () => {
-    const response = await Permissions.askAsync(Permissions.AUDIO_RECORDING);
-    this.setState({
-      haveRecordingPermissions: response.status === 'granted',
-    });
-  };
 
   _updateScreenForSoundStatus = status => {
     if (status.isLoaded) {
