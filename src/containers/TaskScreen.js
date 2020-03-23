@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import { MULTIPLE_CHOICE, FREE_ANSWER, MULTIMEDIA, IMAGE } from '../constants/taskTypeConstants'
+import { MULTIPLE_CHOICE, FREE_ANSWER, MULTIMEDIA, IMAGE, AUDIO } from '../constants/taskTypeConstants'
 import {
   TypeError,
   MultipleChoice,
@@ -10,6 +10,7 @@ import {
 } from '../components/taskComponents'
 import { solveTask } from '../actions/activityActions'
 import CameraComponent from '../components/taskComponents/multimediaComponents/CameraComponent'
+import AudioComponent from '../components/taskComponents/multimediaComponents/audioComponent'
 
 //Pantalla de vista de tarea
 class TaskScreen extends Component {
@@ -61,6 +62,10 @@ class TaskScreen extends Component {
                 solveTask={solveTask}
               />
             )
+            case AUDIO:
+              return(
+                <AudioComponent/>
+              )
           default:
             return (
               <TypeError navigation={navigation} />
