@@ -26,6 +26,8 @@ class FinalReviewScreenComponent extends Component {
       finishedTasks
     } = this.props.navigation.getParam('educationalActivity')
 
+    finishedTasks.filter(task => console.log(task))
+
     return (
       <View style={viewStyle}>
       <View style={{flex:1}}>
@@ -33,8 +35,8 @@ class FinalReviewScreenComponent extends Component {
       </View>
       <View style={{flex:3}}>
         <Text style={resultStyle}>{`${tasks.length} tareas sin resolver`}</Text>
-        <Text style={resultStyle}>{`${(finishedTasks.filter(task => task.answer.isCorrect)).length} correctamente`}</Text>
-        <Text style={resultStyle}>{`${(finishedTasks.filter(task => !task.answer.isCorrect)).length} incorrectamente`}</Text>
+        <Text style={resultStyle}>{`${(finishedTasks.filter(task => task.answer.isCorrect || task.answer.isCorrect === undefined)).length} correctamente`}</Text>
+        <Text style={resultStyle}>{`${(finishedTasks.filter(task => task.answer.isCorrect === false)).length} incorrectamente`}</Text>
       </View>
       <DefaultButton title="Finalizar" onPress={() => this.props.navigation.popToTop()}/>
       </View>

@@ -44,22 +44,13 @@ class CameraModalActivity extends Component {
 
   //Obtiene la actividad, chequea que tenga los campos correspondientes y la utiliza como estado del componente
   loadActivity(id) {
-    if(this.state.status !== 'loading'){
-    this.setState(() => ({ status: 'loading' }))
     getActivity(id).then(
       activity => {
         this.handleLoadedActivity(activity)
       }
     ).catch(
-      error => {
-        this.setState(() => ({ status: 'unloaded' }))
-        Alert.alert(
-          'Error en la carga de la actividad',
-          error.message
-        )
-      }
+       error => {throw error}
     )
-  }
   }
 
   render() {
@@ -85,9 +76,22 @@ class CameraModalActivity extends Component {
     )
   }
 
-   handleBarCodeScanned = ({ type, data }) => {
-    this.loadActivity(data)
-    this.props.navigation.navigate('')
+  handleBarCodeScanned = ({ type, data }) => {
+    if (this.state.status === 'unloaded') {
+      this.setState({ ...this.state, status: 'loading' })
+      try{
+        this.loadActivity(data)
+        this.props.navigation.navigate('')
+      } catch {
+        error => {
+          this.setState(() => ({ status: 'unloaded' }))
+          Alert.alert(
+            'Error en la carga de la actividad',
+            error.message
+          )
+        }
+      }
+    }
   }
 
 }
