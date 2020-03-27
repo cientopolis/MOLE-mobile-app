@@ -6,11 +6,13 @@ import {
   FREE_ANSWER,
   MULTIMEDIA,
   IMAGE,
+  AUDIO
 } from '../constants/taskTypeConstants'
 import {
   MultipleChoiceReview,
   FreeAnswerReview,
-  TypeError
+  TypeError,
+  MultimediaAudioReview
 } from '../components/taskReviewComponents'
 import MultimediaPhotoReviewComponent from '../components/taskReviewComponents/multimediaPhotoReviewComponent'
 
@@ -42,6 +44,10 @@ class ReviewScreen extends Component {
           case IMAGE:
             return (
               <MultimediaPhotoReviewComponent finishedTask={finishedTask} navigation={this.props.navigation}/>
+            )
+          case AUDIO:
+            return (
+              <MultimediaAudioReview finishedTask={finishedTask} navigation={this.props.navigation}/>
             )
         }
       default:

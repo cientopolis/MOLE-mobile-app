@@ -456,6 +456,7 @@ const RATE_SCALE = 3.0;
           </View>
           <View />
         </View>
+        {/* Agregar Boton para pasar a review */}
       </View>
     );
   }
