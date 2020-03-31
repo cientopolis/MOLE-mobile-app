@@ -62,15 +62,19 @@ class TaskScreen extends Component {
                 solveTask={solveTask}
               />
             )
-            case AUDIO:
-              return(
-                <AudioComponent/>
-              )
+          case AUDIO:
+            return (
+              <AudioComponent
+                task={task}
+                navigation={navigation}
+                solveTask={solveTask}
+              />
+            )
           default:
             return (
               <TypeError navigation={navigation} />
             )
-        } 
+        }
       default:
         return (
           <TypeError navigation={navigation} />

@@ -8,6 +8,7 @@ import {
   TouchableHighlight,
   View,
 } from 'react-native';
+import { DefaultButton } from '../..'
 import { Asset } from 'expo-asset';
 import { Audio } from 'expo-av';
 import * as FileSystem from 'expo-file-system';
@@ -38,12 +39,12 @@ const ICON_THUMB_1 = new Icon(require('../../../assets/images/thumb_1.png'), 18,
 const ICON_THUMB_2 = new Icon(require('../../../assets/images/thumb_2.png'), 15, 19);
 
 const { width: DEVICE_WIDTH, height: DEVICE_HEIGHT } = Dimensions.get('window');
-const BACKGROUND_COLOR = '#FFF8ED';
+const BACKGROUND_COLOR = '#FFFFFF';
 const LIVE_COLOR = '#FF0000';
 const DISABLED_OPACITY = 0.5;
 const RATE_SCALE = 3.0;
 
- class AudioComponent extends React.Component {
+class AudioComponent extends React.Component {
   constructor(props) {
     super(props);
     this.recording = null;
@@ -72,7 +73,7 @@ const RATE_SCALE = 3.0;
   }
 
   async componentDidMount() {
-    await Font.loadAsync({'cutive-mono-regular': require('../../../assets/fonts/CutiveMono-Regular.ttf')})
+    await Font.loadAsync({ 'cutive-mono-regular': require('../../../assets/fonts/CutiveMono-Regular.ttf') })
     this.setState({ fontLoaded: true })
     const recordingPermission = await hasMicrophonePermission()
     this.setState({ haveRecordingPermissions: recordingPermission, })
@@ -312,22 +313,22 @@ const RATE_SCALE = 3.0;
   }
 
   render() {
-    if(!this.state.fontLoaded) {
-        return (
-            <View style={styles.emptyContainer} />
-        )
+    if (!this.state.fontLoaded) {
+      return (
+        <View style={styles.emptyContainer} />
+      )
     }
 
-    if (!this.state.haveRecordingPermissions){
-        return (
-            <View style={styles.container}>
-                <View />
-                <Text style={[styles.noPermissionsText, { fontFamily: 'cutive-mono-regular' }]}>
-                  You must enable audio recording permissions in order to use this app.
+    if (!this.state.haveRecordingPermissions) {
+      return (
+        <View style={styles.container}>
+          <View />
+          <Text style={[styles.noPermissionsText, { fontFamily: 'cutive-mono-regular' }]}>
+            You must enable audio recording permissions in order to use this app.
                 </Text>
-                <View />
-            </View>
-        )
+          <View />
+        </View>
+      )
     }
 
     return (
@@ -352,7 +353,7 @@ const RATE_SCALE = 3.0;
             <View style={styles.recordingDataContainer}>
               <View />
               <Text style={[styles.liveText, { fontFamily: 'cutive-mono-regular' }]}>
-                {this.state.isRecording ? 'LIVE' : ''}
+                {this.state.isRecording ? 'GRABANDO' : ''}
               </Text>
               <View style={styles.recordingDataRowContainer}>
                 <Image
@@ -434,29 +435,11 @@ const RATE_SCALE = 3.0;
             </View>
             <View />
           </View>
-          <View style={[styles.buttonsContainerBase, styles.buttonsContainerBottomRow]}>
-            <Text style={[styles.timestamp, { fontFamily: 'cutive-mono-regular' }]}>Rate:</Text>
-            <Slider
-              style={styles.rateSlider}
-              trackImage={ICON_TRACK_1.module}
-              thumbImage={ICON_THUMB_1.module}
-              value={this.state.rate / RATE_SCALE}
-              onSlidingComplete={this._onRateSliderSlidingComplete}
-              disabled={!this.state.isPlaybackAllowed || this.state.isLoading}
-            />
-            <TouchableHighlight
-              underlayColor={BACKGROUND_COLOR}
-              style={styles.wrapper}
-              onPress={this._onPitchCorrectionPressed}
-              disabled={!this.state.isPlaybackAllowed || this.state.isLoading}>
-              <Text style={[{ fontFamily: 'cutive-mono-regular' }]}>
-                PC: {this.state.shouldCorrectPitch ? 'yes' : 'no'}
-              </Text>
-            </TouchableHighlight>
-          </View>
+          <DefaultButton title="Continuar" onPress={() => {
+            this.props.navigation.navigate('TaskReview')
+          }} />
           <View />
         </View>
-        {/* Agregar Boton para pasar a review */}
       </View>
     );
   }
@@ -508,8 +491,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     minHeight: ICON_RECORD_BUTTON.height,
     maxHeight: ICON_RECORD_BUTTON.height,
-    minWidth: ICON_RECORD_BUTTON.width * 3.0,
-    maxWidth: ICON_RECORD_BUTTON.width * 3.0,
+    minWidth: ICON_RECORD_BUTTON.width * 2.0,
+    maxWidth: ICON_RECORD_BUTTON.width * 2.0,
   },
   recordingDataRowContainer: {
     flex: 1,
@@ -525,8 +508,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     alignSelf: 'stretch',
-    minHeight: ICON_THUMB_1.height * 2.0,
-    maxHeight: ICON_THUMB_1.height * 2.0,
+    minHeight: ICON_THUMB_1.height * 1.0,
+    maxHeight: ICON_THUMB_1.height * 1.0,
   },
   playbackSlider: {
     alignSelf: 'stretch',

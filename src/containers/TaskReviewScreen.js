@@ -29,6 +29,7 @@ class ReviewScreen extends Component {
   render() {
 
     const finishedTask = this.props.task
+    console.log(this.props.task)
 
     switch (finishedTask.task.type) {
       case MULTIPLE_CHOICE:
