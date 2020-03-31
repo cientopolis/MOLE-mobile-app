@@ -7,6 +7,7 @@ import {
   Text,
   TouchableHighlight,
   View,
+  Alert,
 } from 'react-native';
 import { DefaultButton } from '../..'
 import { Asset } from 'expo-asset';
@@ -435,12 +436,22 @@ class AudioComponent extends React.Component {
             </View>
             <View />
           </View>
-          <DefaultButton title="Continuar" onPress={() => {
-            this.props.navigation.navigate('TaskReview')
-          }} />
+          <View style={[styles.buttonsContainerBase, styles.buttonsContainerTopRow]}>
+            <DefaultButton title="Continuar" onPress={() => {
+            if(this.recording == null){
+              return Alert.alert('Debe grabar antes de continuar')
+            }
+            else{
+              this.props.navigation.navigate('TaskReview')
+            }
+              }} />
+            </View>
+            <View style={[styles.buttonsContainerBase, styles.buttonsContainerTopRow]}>
+            </View>
+            <View />
+          </View>
           <View />
         </View>
-      </View>
     );
   }
 }
@@ -540,7 +551,7 @@ const styles = StyleSheet.create({
   },
   buttonsContainerTopRow: {
     maxHeight: ICON_MUTED_BUTTON.height,
-    alignSelf: 'stretch',
+    alignSelf: 'center',
     paddingRight: 20,
   },
   playStopContainer: {
