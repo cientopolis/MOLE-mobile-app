@@ -314,6 +314,18 @@ class AudioComponent extends React.Component {
   }
 
   render() {
+    const {
+      task:{
+        name,
+        description,
+        payload: {
+          options,
+        },
+      },
+      navigation,
+      solveTask,
+      setFinishedTask,
+    } = this.props
     if (!this.state.fontLoaded) {
       return (
         <View style={styles.emptyContainer} />
@@ -344,6 +356,7 @@ class AudioComponent extends React.Component {
           <View />
           <View style={styles.recordingContainer}>
             <View />
+            <Text style= {titleStyle}>{this.props.task.name}</Text>
             <TouchableHighlight
               underlayColor={BACKGROUND_COLOR}
               style={styles.wrapper}
@@ -439,7 +452,8 @@ class AudioComponent extends React.Component {
           <View style={[styles.buttonsContainerBase, styles.buttonsContainerTopRow]}>
             <DefaultButton title="Continuar" onPress={() => {
             if(this.recording == null){
-              return Alert.alert('Debe grabar antes de continuar')
+              console.log(this.props.task.name)
+              return Alert.alert('Debe grabar antes de continuar','Por favor asegurese de grabar su respuesta para poder continuar')
             }
             else{
               this.props.navigation.navigate('TaskReview')
