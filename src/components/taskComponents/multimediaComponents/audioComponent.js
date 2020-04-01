@@ -346,6 +346,7 @@ class AudioComponent extends React.Component {
 
     return (
       <View style={styles.container}>
+        <Text style= {{alignSelf:'center'}}>{this.props.task.name}</Text>
         <View
           style={[
             styles.halfScreenContainer,
