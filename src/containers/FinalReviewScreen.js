@@ -25,6 +25,8 @@ class FinalReviewScreenComponent extends Component {
       tasks,
       finishedTasks
     } = this.props.navigation.getParam('educationalActivity')
+     
+    finishedTasks.filter(task => console.log(task))
 
     return (
       <View style={viewStyle}>
