@@ -1,10 +1,10 @@
 {
-  "expoServerPort": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null,
+  "expoServerPort": 19000,
+  "expoServerNgrokUrl": "https://vg-62z.anonymous.mole-mobile-app.exp.direct",
+  "packagerNgrokUrl": "https://packager.vg-62z.anonymous.mole-mobile-app.exp.direct",
+  "ngrokPid": 28991,
   "devToolsPort": 19002,
-  "packagerPort": null,
-  "packagerPid": null,
+  "packagerPort": 19003,
+  "packagerPid": 28964,
   "webpackServerPort": null
 }

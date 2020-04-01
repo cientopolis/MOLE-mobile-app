@@ -356,7 +356,7 @@ class AudioComponent extends React.Component {
           <View />
           <View style={styles.recordingContainer}>
             <View />
-            <Text style= {titleStyle}>{this.props.task.name}</Text>
+            <Text>{this.props.task.name}</Text>
             <TouchableHighlight
               underlayColor={BACKGROUND_COLOR}
               style={styles.wrapper}
@@ -456,6 +456,7 @@ class AudioComponent extends React.Component {
               return Alert.alert('Debe grabar antes de continuar','Por favor asegurese de grabar su respuesta para poder continuar')
             }
             else{
+              this.props.solveTask(this.props.task, {res: "RESPUESTA"})
               this.props.navigation.navigate('TaskReview')
             }
               }} />
