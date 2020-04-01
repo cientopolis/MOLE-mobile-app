@@ -22,7 +22,9 @@ class MultimediaPhotoReviewComponent extends Component {
     return (
       <View style={styles.viewFARC}>
         <Text style={styles.titleFARC}>{name}</Text>
-        <Image style={styles.image} source={answer} />
+        <View style={styles.imageView}>
+          <Image style={styles.image} source={answer} />
+        </View>
         <DefaultButton
           title="Volver"
           onPress={() => this.props.navigation.navigate('Main')}
@@ -47,9 +49,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 20,
   },
+  imageView: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   image: {
-    width:90,
-    height:90,
+    width: 200,
+    height: 200,
     marginBottom: 60,
   }
 })
