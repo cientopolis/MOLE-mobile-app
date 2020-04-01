@@ -346,6 +346,7 @@ class AudioComponent extends React.Component {
 
     return (
       <View style={styles.container}>
+        <Text style= {{alignSelf:'center'}}>{this.props.task.name}</Text>
         <View
           style={[
             styles.halfScreenContainer,
@@ -356,7 +357,6 @@ class AudioComponent extends React.Component {
           <View />
           <View style={styles.recordingContainer}>
             <View />
-            <Text style= {titleStyle}>{this.props.task.name}</Text>
             <TouchableHighlight
               underlayColor={BACKGROUND_COLOR}
               style={styles.wrapper}
