@@ -32,7 +32,6 @@ class MutipleChoiceComponent extends Component {
       solveTask,
       setFinishedTask,
     } = this.props
-
     return (
       <View style={viewStyle}>
         <View style={{flex:1,alignSelf:'center'}}>

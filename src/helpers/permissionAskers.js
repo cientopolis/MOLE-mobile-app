@@ -13,7 +13,14 @@ async function hasCameraPermission() {
   return (status === 'granted')
 }
 
+//Acceso al microfono
+async function hasMicrophonePermission() {
+  const { status } = await Permissions.askAsync(Permissions.AUDIO_RECORDING)
+  return (status === 'granted')
+}
+
 export const hasReadWritePermissionFunction = hasReadWritePermission
 export const hasCameraPermissionFunction = hasCameraPermission
+export const hasMicrophonePermissionFunction = hasMicrophonePermission
 
-export default { hasReadWritePermission, hasCameraPermission }
+export default { hasReadWritePermission, hasCameraPermission, hasMicrophonePermission }
