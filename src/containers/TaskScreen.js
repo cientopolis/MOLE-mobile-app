@@ -9,8 +9,8 @@ import {
   FreeAnswer,
 } from '../components/taskComponents'
 import { solveTask } from '../actions/activityActions'
-import CameraComponent from '../components/taskComponents/multimediaComponents/CameraComponent'
 import AudioComponent from '../components/taskComponents/multimediaComponents/audioComponent'
+import FotoComponent from '../components/taskComponents/multimediaComponents/fotoComponents/fotoComponent'
 
 //Pantalla de vista de tarea
 class TaskScreen extends Component {
@@ -56,7 +56,7 @@ class TaskScreen extends Component {
         switch (task.payload.multimedia_type) {
           case IMAGE:
             return (
-              <CameraComponent
+              <FotoComponent
                 task={task}
                 navigation={navigation}
                 solveTask={solveTask}

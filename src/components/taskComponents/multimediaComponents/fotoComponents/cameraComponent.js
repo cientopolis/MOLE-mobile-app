@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity } from 'react-native'
 import { Camera } from 'expo-camera';
-import { hasCameraPermissionFunction as hasCameraPermission } from '../../../helpers/permissionAskers'
+import { hasCameraPermissionFunction as hasCameraPermission } from '../../../../helpers/permissionAskers'
 
-import DefaultButton from '../../defaultButton'
+import DefaultButton from '../../../defaultButton'
 
 class CameraComponent extends React.Component {
 
@@ -19,8 +19,7 @@ class CameraComponent extends React.Component {
   snap = async () => {
     if (this.camera) {
       let photo = await this.camera.takePictureAsync()
-      this.props.solveTask({ ...this.props.task, aswer: { isCorrect: true } }, { uri: photo.uri })
-      this.props.navigation.navigate('TaskReview')
+      this.props.setPhoto(photo.uri)
     }
   }
 
@@ -28,8 +27,6 @@ class CameraComponent extends React.Component {
 
     const {
       task,
-      navigation,
-      solveTask,
     } = this.props
 
     if (hasCameraPermission === null) {

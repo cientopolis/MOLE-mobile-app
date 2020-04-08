@@ -13,6 +13,7 @@
     "expo": "^35.0.0",
     "expo-av": "^8.0.0",
     "expo-barcode-scanner": "^7.0.0",
+    "expo-battery": "^2.1.0",
     "expo-camera": "~7.0.0",
     "expo-cli": "3.9.0",
     "global": "^4.3.2",

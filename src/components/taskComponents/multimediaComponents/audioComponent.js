@@ -357,7 +357,7 @@ class AudioComponent extends React.Component {
           <View />
           <View style={styles.recordingContainer}>
             <View />
-            <Text style={styles.titleStyle}>{this.props.task.name}</Text>
+            <Text style={styles.titleStyle}>GRABAR: </Text>
             <TouchableHighlight
               underlayColor={BACKGROUND_COLOR}
               style={styles.wrapper}
