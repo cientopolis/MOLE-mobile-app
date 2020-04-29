@@ -4981,10 +4981,10 @@ expo-barcode-scanner@^7.0.0:
     lodash "^4.6.0"
     prop-types "^15.6.0"
 
-expo-battery@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/expo-battery/-/expo-battery-2.1.0.tgz#1e2ea033e19bf9e7e0096edd0a50892f7f67d0d0"
-  integrity sha512-pGFHXdPThlUXVGWUVY7QtXg9i/Cyy0BwuKTqS8BSgCRVBDuIPgyPkhobhNteUHM82hKlO3qYY8wmc8+jGQQHZw==
+expo-battery@~1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/expo-battery/-/expo-battery-1.0.1.tgz#e54324a9e1c53e2a74a84f7a37ed0e0bc4258580"
+  integrity sha512-jCHCGlVQ62P5ixaC76OCSlaVz1brGkKk+BOM66aD0dUySPgbpWSS4F5NvQRFHLNt8pePFnrvJYTkB9Pr9v17qg==
 
 expo-camera@~7.0.0:
   version "7.0.0"
@@ -5075,6 +5075,11 @@ expo-font@~7.0.0:
   integrity sha512-OVlUydfexjq1u57Xlymcx5egfFF2WZ5MXkg3GGjHyiSMfp09inZ7OzAu+O/TXjxjlaq9d6vBXiwVxqQoUIlx1Q==
   dependencies:
     fontfaceobserver "^2.1.0"
+
+expo-image-picker@~7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/expo-image-picker/-/expo-image-picker-7.0.0.tgz#e4a5a52bd6f9655f75ecf3cc866aa9bb0c99e24b"
+  integrity sha512-LeGdAqbeuB2KsT369ns1kDtCGbyDCmY2gIFlf/rsD3+UmagRFX9emZLGPEnUNdCWXoctSejjFwxDnCUtpvL6yw==
 
 expo-keep-awake@~7.0.0:
   version "7.0.0"
