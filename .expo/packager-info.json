@@ -1,10 +1,10 @@
 {
-  "expoServerPort": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null,
+  "expoServerPort": 19000,
+  "expoServerNgrokUrl": "https://9s-pbx.fedediclaudio.mole-mobile-app.exp.direct",
+  "packagerNgrokUrl": "https://packager.9s-pbx.fedediclaudio.mole-mobile-app.exp.direct",
+  "ngrokPid": 9906,
   "devToolsPort": 19002,
-  "packagerPort": null,
-  "packagerPid": null,
+  "packagerPort": 19001,
+  "packagerPid": 9853,
   "webpackServerPort": null
 }

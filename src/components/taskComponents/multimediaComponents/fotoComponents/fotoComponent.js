@@ -14,6 +14,8 @@ class FotoComponent extends Component {
 
   setPhoto = (imageSrc) => {
     this.props.solveTask({ ...this.props.task, aswer: { isCorrect: true } }, { uri: imageSrc })
+    console.log("Seteado resultado")
+    console.log(imageSrc)
     this.props.navigation.navigate('TaskReview')
   }
 
