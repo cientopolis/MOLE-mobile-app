@@ -19,7 +19,6 @@ class CameraComponent extends React.Component {
   snap = async () => {
     if (this.camera) {
       let photo = await this.camera.takePictureAsync()
-      console.log(photo.uri)
       this.props.setPhoto(photo.uri)
     }
   }
@@ -31,13 +30,6 @@ class CameraComponent extends React.Component {
     } = this.props
 
     console.log("Componente Camera")
-
-    // if (hasCameraPermission === null) {
-    //   return <Text>Esperando por permiso de camara</Text>;
-    // }
-    // if (hasCameraPermission === false) {
-    //   return <Text>No se tiene acceso a la camara, por lo que no puede realizarse esta tarea</Text>;
-    // }
     return (
       <View style={{ flex: 1 }}>
         <Text style={{ color: '#000000', backgroundColor: '#FFFFFF', fontSize: 20 }}>{task.payload.slogan}</Text>

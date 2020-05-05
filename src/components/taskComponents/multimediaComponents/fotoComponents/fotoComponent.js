@@ -37,12 +37,10 @@ class FotoComponent extends Component {
   render() {
 
     return (
-      <View>
         <PermissionAwareComponent
           permissionComponentList={this.componentList}
           defaultComponent={(<DefaultFotoComponent />)}
         />
-      </View>
     )
   }
 
