@@ -9,12 +9,12 @@ import {
   View,
   Alert,
 } from 'react-native';
-import { DefaultButton } from '../..'
+import { DefaultButton } from '../../..'
 import { Asset } from 'expo-asset';
 import { Audio } from 'expo-av';
 import * as FileSystem from 'expo-file-system';
 import * as Font from 'expo-font';
-import { hasMicrophonePermissionFunction as hasMicrophonePermission } from '../../../helpers/permissionAskers'
+import { hasMicrophonePermissionFunction as hasMicrophonePermission } from '../../../../helpers/permissionAskers'
 
 class Icon {
   constructor(module, width, height) {
