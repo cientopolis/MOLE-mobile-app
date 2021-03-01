@@ -8,7 +8,7 @@ import {
 } from '../../../PermisionAwareComponent/PermissionAwareComponent'
 import CameraComponent from './cameraComponent'
 import PictureComponent from './pictureComponent'
-import DefaultFotoComponent from './default'
+import MultimediaDefaultComponent from '../default'
 
 class FotoComponent extends Component {
 
@@ -21,16 +21,16 @@ class FotoComponent extends Component {
 
   componentList = [
     ({
-      permission: [PermissionConstants.CAMERA_ROLL],
-      connectionRequire:PermissionConstants.WIFI,
-      battteryLevelRequire: PermissionConstants.NO_POWER_SAVER,
-      component: (<PictureComponent setPhoto={this.setPhoto} task={this.props.task} />)
-    }),
-    ({
       permission: [PermissionConstants.CAMERA],
       connectionRequire:PermissionConstants.WIFI,
-      battteryLevelRequire: PermissionConstants.NO_POWER_SAVER,
+      powerSaverCondition: PermissionConstants.NO_POWER_SAVER,
       component: (<CameraComponent setPhoto={this.setPhoto} task={this.props.task} />)
+    }),
+    ({
+      permission: [PermissionConstants.MEDIA_LIBRARY],
+      connectionRequire:PermissionConstants.WIFI,
+      powerSaverCondition: PermissionConstants.NO_POWER_SAVER,
+      component: (<PictureComponent setPhoto={this.setPhoto} task={this.props.task} />)
     }),
   ]
 
@@ -39,7 +39,7 @@ class FotoComponent extends Component {
     return (
         <PermissionAwareComponent
           permissionComponentList={this.componentList}
-          defaultComponent={(<DefaultFotoComponent />)}
+          defaultComponent={(<MultimediaDefaultComponent />)}
         />
     )
   }

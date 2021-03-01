@@ -45,7 +45,7 @@ const LIVE_COLOR = '#FF0000';
 const DISABLED_OPACITY = 0.5;
 const RATE_SCALE = 3.0;
 
-class AudioComponent extends React.Component {
+class AudioTakeComponent extends React.Component {
   constructor(props) {
     super(props);
     this.recording = null;
@@ -472,7 +472,7 @@ class AudioComponent extends React.Component {
   }
 }
 
-export default AudioComponent
+export default AudioTakeComponent
 
 const styles = StyleSheet.create({
   emptyContainer: {

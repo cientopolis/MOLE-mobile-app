@@ -2,15 +2,18 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import { MULTIPLE_CHOICE, FREE_ANSWER, MULTIMEDIA, IMAGE, AUDIO } from '../constants/taskTypeConstants'
+import { MULTIPLE_CHOICE, FREE_ANSWER, MULTIMEDIA, LOCATION, IMAGE, AUDIO, VIDEO } from '../constants/taskTypeConstants'
 import {
   TypeError,
   MultipleChoice,
   FreeAnswer,
+  Foto,
+  Video,
+  Audio,
+  Location
 } from '../components/taskComponents'
 import { solveTask } from '../actions/activityActions'
-import AudioComponent from '../components/taskComponents/multimediaComponents/audioComponent'
-import FotoComponent from '../components/taskComponents/multimediaComponents/fotoComponents/fotoComponent'
+
 
 //Pantalla de vista de tarea
 class TaskScreen extends Component {
@@ -56,7 +59,7 @@ class TaskScreen extends Component {
         switch (task.payload.multimedia_type) {
           case IMAGE:
             return (
-              <FotoComponent
+              <Foto
                 task={task}
                 navigation={navigation}
                 solveTask={solveTask}
@@ -64,7 +67,15 @@ class TaskScreen extends Component {
             )
           case AUDIO:
             return (
-              <AudioComponent
+              <Audio
+                task={task}
+                navigation={navigation}
+                solveTask={solveTask}
+              />
+            )
+          case VIDEO:
+            return (
+              <Video
                 task={task}
                 navigation={navigation}
                 solveTask={solveTask}
@@ -75,6 +86,14 @@ class TaskScreen extends Component {
               <TypeError navigation={navigation} />
             )
         }
+      case LOCATION:
+        return (
+          <Location
+            task={task}
+            navigation={navigation}
+            solveTask={solveTask}
+          />
+        )
       default:
         return (
           <TypeError navigation={navigation} />

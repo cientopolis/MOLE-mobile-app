@@ -2,6 +2,7 @@
 export const MULTIPLE_CHOICE = 'mc'
 export const FREE_ANSWER = 'fa'
 export const MULTIMEDIA = 'mt'
+export const LOCATION = 'lt'
 
 //Constantes especificos de tipo de tarea multimedia
 export const IMAGE = 'image'

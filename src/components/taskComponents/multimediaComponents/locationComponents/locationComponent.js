@@ -7,25 +7,28 @@ import {
     PermissionConstants,
 } from '../../../PermisionAwareComponent/PermissionAwareComponent'
 import MultimediaDefaultComponent from '../default'
-import VideoTakeComponent from './videoTakeComponent'
-import VideoGalleryComponent from './videoGalleryComponent'
+import LocationGpsComponent from './locationGpsComponent'
+import LocationMapComponent from './locationMapComponent'
 
-class VideoComponent extends Component {
+class LocationComponent extends Component {
 
     componentList = [
         ({
-            permission: [PermissionConstants.CAMERA],
+            permission: [PermissionConstants.LOCATION],
+            connectionRequire: PermissionConstants.WIFI,
             powerSaverCondition: PermissionConstants.NO_POWER_SAVER,
-            battteryLevelRequire: 25,
-            component: (<VideoTakeComponent />)
+            component: (<LocationGpsComponent />)
         }),
         ({
-            permission: [PermissionConstants.MEDIA_LIBRARY],
-            component: (<VideoGalleryComponent />)
+            permission: [],
+            connectionRequire: PermissionConstants.WIFI,
+            powerSaverCondition: PermissionConstants.NO_POWER_SAVER,
+            component: (<LocationMapComponent />)
         })
     ]
 
     render() {
+
         return (
             <PermissionAwareComponent
                 permissionComponentList={this.componentList}
@@ -34,4 +37,4 @@ class VideoComponent extends Component {
         )
     }
 }
-export default VideoComponent
+export default LocationComponent

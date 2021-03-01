@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, Button } from 'react-native'
 
-class DefaultFotoComponent extends Component {
+class MultimediaDefaultComponent extends Component {
 
   render() {
 
@@ -9,6 +9,7 @@ class DefaultFotoComponent extends Component {
 
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <span>COMPONENTE DEFAULT GENERICO</span>
         <Button title="Default component" onPress={() => {}} />
       </View>
     );
@@ -16,4 +17,4 @@ class DefaultFotoComponent extends Component {
 
 }
 
-export default DefaultFotoComponent
+export default MultimediaDefaultComponent
