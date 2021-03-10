@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity } from 'react-native'
 import { Camera } from 'expo-camera';
-import { hasCameraPermissionFunction as hasCameraPermission } from '../../../../helpers/permissionAskers'
 
 import DefaultButton from '../../../defaultButton'
 
 class CameraComponent extends React.Component {
 
-  state = {
-    hasCameraPermission: null,
-  }
+  // state = {
+  //   hasCameraPermission: null,
+  // }
 
-  async componentDidMount() {
-    const cameraPermission = await hasCameraPermission()
-    this.setState({ hasCameraPermission: cameraPermission, })
-  }
+  // async componentDidMount() {
+  //   const cameraPermission = await hasCameraPermission()
+  //   this.setState({ hasCameraPermission: cameraPermission, })
+  // }
 
   snap = async () => {
     if (this.camera) {

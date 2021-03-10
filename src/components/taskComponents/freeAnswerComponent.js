@@ -29,6 +29,9 @@ class FreeAnswerComponent extends Component {
     const {
       name,
       description,
+      payload: {
+        slogan
+      }
     } = this.props.task
 
     const {
@@ -38,7 +41,7 @@ class FreeAnswerComponent extends Component {
     return (
       <View style={styles.viewFAC}>
         <Text style={styles.titleFAC}>{name}</Text>
-        <Text style={styles.descriptionFAC}>{description}</Text>
+        <Text style={styles.descriptionFAC}>{slogan}</Text>
         <KeyboardAvoidingView behavior="padding">
           <TextInput
             onChangeText={this.updateAnswer}

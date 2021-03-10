@@ -25,19 +25,19 @@ class Icon {
   }
 }
 
-const ICON_RECORD_BUTTON = new Icon(require('../../../assets/images/record_button.png'), 70, 119);
-const ICON_RECORDING = new Icon(require('../../../assets/images/record_icon.png'), 20, 14);
+const ICON_RECORD_BUTTON = new Icon(require('../../../../assets/images/record_button.png'), 70, 119);
+const ICON_RECORDING = new Icon(require('../../../../assets/images/record_icon.png'), 20, 14);
 
-const ICON_PLAY_BUTTON = new Icon(require('../../../assets/images/play_button.png'), 34, 51);
-const ICON_PAUSE_BUTTON = new Icon(require('../../../assets/images/pause_button.png'), 34, 51);
-const ICON_STOP_BUTTON = new Icon(require('../../../assets/images/stop_button.png'), 22, 22);
+const ICON_PLAY_BUTTON = new Icon(require('../../../../assets/images/play_button.png'), 34, 51);
+const ICON_PAUSE_BUTTON = new Icon(require('../../../../assets/images/pause_button.png'), 34, 51);
+const ICON_STOP_BUTTON = new Icon(require('../../../../assets/images/stop_button.png'), 22, 22);
 
-const ICON_MUTED_BUTTON = new Icon(require('../../../assets/images/muted_button.png'), 67, 58);
-const ICON_UNMUTED_BUTTON = new Icon(require('../../../assets/images/unmuted_button.png'), 67, 58);
+const ICON_MUTED_BUTTON = new Icon(require('../../../../assets/images/muted_button.png'), 67, 58);
+const ICON_UNMUTED_BUTTON = new Icon(require('../../../../assets/images/unmuted_button.png'), 67, 58);
 
-const ICON_TRACK_1 = new Icon(require('../../../assets/images/track_1.png'), 166, 5);
-const ICON_THUMB_1 = new Icon(require('../../../assets/images/thumb_1.png'), 18, 19);
-const ICON_THUMB_2 = new Icon(require('../../../assets/images/thumb_2.png'), 15, 19);
+const ICON_TRACK_1 = new Icon(require('../../../../assets/images/track_1.png'), 166, 5);
+const ICON_THUMB_1 = new Icon(require('../../../../assets/images/thumb_1.png'), 18, 19);
+const ICON_THUMB_2 = new Icon(require('../../../../assets/images/thumb_2.png'), 15, 19);
 
 const { width: DEVICE_WIDTH, height: DEVICE_HEIGHT } = Dimensions.get('window');
 const BACKGROUND_COLOR = '#FFFFFF';
@@ -74,7 +74,7 @@ class AudioTakeComponent extends React.Component {
   }
 
   async componentDidMount() {
-    await Font.loadAsync({ 'cutive-mono-regular': require('../../../assets/fonts/CutiveMono-Regular.ttf') })
+    await Font.loadAsync({ 'cutive-mono-regular': require('../../../../assets/fonts/CutiveMono-Regular.ttf') })
     this.setState({ fontLoaded: true })
     const recordingPermission = await hasMicrophonePermission()
     this.setState({ haveRecordingPermissions: recordingPermission, })
@@ -346,7 +346,8 @@ class AudioTakeComponent extends React.Component {
 
     return (
       <View style={styles.container}>
-        <Text style= {{alignSelf:'center'}}>{this.props.task.name}</Text>
+        <Text style={styles.title}>{this.props.task.name}</Text>
+        <Text style={styles.slogan}>{this.props.task.payload.slogan}</Text>
         <View
           style={[
             styles.halfScreenContainer,
@@ -457,8 +458,7 @@ class AudioTakeComponent extends React.Component {
               return Alert.alert('Debe grabar antes de continuar','Por favor asegurese de grabar su respuesta para poder continuar')
             }
             else{
-              this.props.solveTask(this.props.task, "Realizada")
-              this.props.navigation.navigate('TaskReview')
+              this.props.setAudio("OK")
             }
               }} />
             </View>
@@ -499,8 +499,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     alignSelf: 'stretch',
-    minHeight: DEVICE_HEIGHT / 2.0,
-    maxHeight: DEVICE_HEIGHT / 2.0,
+    minHeight: DEVICE_HEIGHT / 2.5,
+    maxHeight: DEVICE_HEIGHT / 2.5,
   },
   recordingContainer: {
     flex: 1,
@@ -598,7 +598,14 @@ const styles = StyleSheet.create({
   rateSlider: {
     width: DEVICE_WIDTH / 2.0,
   },
-  titleStyle: {
-
+  title: {
+    textAlign: 'center',
+    fontSize:25,
+    paddingTop:20,
   },
+  slogan: {
+    textAlign: 'center',
+    fontSize: 20,
+    marginTop:15
+  }
 });

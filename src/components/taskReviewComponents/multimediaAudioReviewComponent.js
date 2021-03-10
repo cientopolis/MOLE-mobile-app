@@ -27,8 +27,8 @@ class MultimediaAudioReviewComponent extends Component {
 
     return (
       <View style={styles.viewFARC}>
-        <Text style={styles.titleFARC}>{name}</Text>
-        <Text style={styles.titleFARC}>El audio ha sido grabado</Text>
+        <Text style={styles.titleFARC}>Tarea: {name}</Text>
+        <Text style={styles.descriptionFARC}>La tarea de audio ha sido completada exitosamente!</Text>
         <DefaultButton
           title="Volver"
           onPress={() => this.props.navigation.navigate('Main')}
@@ -47,11 +47,11 @@ const styles = StyleSheet.create({
   },
   titleFARC: {
     textAlign: 'center',
-    fontSize: 30,
+    fontSize: 20,
   },
   descriptionFARC: {
     textAlign: 'center',
-    fontSize: 20,
+    fontSize: 30,
   },
 })
 

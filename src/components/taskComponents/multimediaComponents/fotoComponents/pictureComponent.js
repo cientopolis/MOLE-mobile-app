@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Image, View, Text } from 'react-native';
+import { Button, Image, View, Text, StyleSheet } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import DefaultButton from '../../../defaultButton'
 
@@ -21,6 +21,8 @@ class PictureComponent extends Component {
         justifyContent: 'space-between',
       }}>
         <View>
+          <Text style={styles.title}>{this.props.task.name}</Text>
+          <Text style={styles.slogan}>{this.props.task.payload.slogan}</Text>
           <Text style={{ textAlign: "center" }}>Haz click en seleccionar imagen para elegir una de tu galeria</Text>
           <DefaultButton title="Seleccionar imagen" onPress={this.pickImage} />
         </View>
@@ -62,5 +64,20 @@ class PictureComponent extends Component {
   }
 
 }
+
+
+const styles = StyleSheet.create({
+  title: {
+    textAlign: 'center',
+    fontSize: 25,
+    paddingTop: 20,
+  },
+  slogan: {
+    textAlign: 'center',
+    fontSize: 20,
+    marginTop: 15,
+    marginBottom: 100
+  }
+})
 
 export default PictureComponent

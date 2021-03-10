@@ -6,15 +6,19 @@ import {
   FREE_ANSWER,
   MULTIMEDIA,
   IMAGE,
-  AUDIO
+  AUDIO,
+  VIDEO,
+  LOCATION
 } from '../constants/taskTypeConstants'
 import {
   MultipleChoiceReview,
   FreeAnswerReview,
+  MultimediaAudioReview,
+  MultimediaPhotoReview,
+  MultimediaVideoReview,
+  LocationReview,
   TypeError,
-  MultimediaAudioReview
 } from '../components/taskReviewComponents'
-import MultimediaPhotoReviewComponent from '../components/taskReviewComponents/multimediaPhotoReviewComponent'
 
 //Pantalla de vista de correccion de tarea
 class ReviewScreen extends Component {
@@ -44,13 +48,21 @@ class ReviewScreen extends Component {
         switch (finishedTask.task.payload.multimedia_type) {
           case IMAGE:
             return (
-              <MultimediaPhotoReviewComponent finishedTask={finishedTask} navigation={this.props.navigation}/>
+              <MultimediaPhotoReview finishedTask={finishedTask} navigation={this.props.navigation}/>
             )
           case AUDIO:
             return (
               <MultimediaAudioReview finishedTask={finishedTask} navigation={this.props.navigation}/>
             )
+          case VIDEO:
+            return (
+              <MultimediaVideoReview finishedTask={finishedTask} navigation={this.props.navigation}/>
+            )
         }
+      case LOCATION:
+        return (
+          <LocationReview finishedTask={finishedTask} navigation={this.props.navigation}/>
+        )
       default:
         return (
           <TypeError navigation={this.props.navigation}/>

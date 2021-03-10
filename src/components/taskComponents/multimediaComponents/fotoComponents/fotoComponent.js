@@ -21,17 +21,20 @@ class FotoComponent extends Component {
 
   componentList = [
     ({
-      permission: [PermissionConstants.CAMERA],
-      connectionRequire:PermissionConstants.WIFI,
-      powerSaverCondition: PermissionConstants.NO_POWER_SAVER,
-      component: (<CameraComponent setPhoto={this.setPhoto} task={this.props.task} />)
-    }),
-    ({
       permission: [PermissionConstants.MEDIA_LIBRARY],
       connectionRequire:PermissionConstants.WIFI,
       powerSaverCondition: PermissionConstants.NO_POWER_SAVER,
       component: (<PictureComponent setPhoto={this.setPhoto} task={this.props.task} />)
     }),
+    ({
+      permission: [PermissionConstants.CAMERA],
+      connectionRequire:PermissionConstants.WIFI,
+      powerSaverCondition: PermissionConstants.NO_POWER_SAVER,
+      component: (<CameraComponent setPhoto={this.setPhoto} task={this.props.task} />)
+    }),
+    
+    
+    
   ]
 
   render() {
@@ -39,7 +42,7 @@ class FotoComponent extends Component {
     return (
         <PermissionAwareComponent
           permissionComponentList={this.componentList}
-          defaultComponent={(<MultimediaDefaultComponent />)}
+          defaultComponent={(<MultimediaDefaultComponent taskTypeText="la imagen" task={this.props.task} set={this.setPhoto}/>)}
         />
     )
   }

@@ -1,6 +1,6 @@
 import checkFormat from './checkActivityFormat'
 
-const API = 'https://localhost:3001/api/'
+const API = 'https://a78c71fcf8d9.ngrok.io/api/'
 
 const getActivity = id => fetch(API + `Activities/${id}`).then(
   result => result.json().then(

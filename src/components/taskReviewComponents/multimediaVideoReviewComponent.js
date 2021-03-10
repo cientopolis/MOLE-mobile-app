@@ -4,7 +4,7 @@ import { StyleSheet, Image, Text, View } from 'react-native'
 import { DefaultButton } from '..'
 
 
-class MultimediaPhotoReviewComponent extends Component {
+class MultimediaVideoReviewComponent extends Component {
 
   render() {
 
@@ -22,7 +22,7 @@ class MultimediaPhotoReviewComponent extends Component {
     return (
       <View style={styles.viewFARC}>
         <Text style={styles.titleFARC}>{name}</Text>
-        <Text style={styles.descriptionFARC}>La tarea de imagen ha sido completada exitosamente!</Text>
+        <Text style={styles.descriptionFARC}>La tarea de video ha sido completada exitosamente!</Text>
         <View style={styles.imageView}>
           <Image style={styles.image} source={answer} />
         </View>
@@ -61,4 +61,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default MultimediaPhotoReviewComponent
+export default MultimediaVideoReviewComponent
