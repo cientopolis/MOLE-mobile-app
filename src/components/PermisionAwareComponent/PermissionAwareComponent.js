@@ -48,7 +48,7 @@ class PermissionAwareComponent extends Component {
     // Pide y evalua cada permiso necesario
     // Evalua la conexion actual con la requerida
     console.log("---- Evaluacion de condicion de conexion ----")
-    const connection = true
+    const connection = await this.handleConnection(connectionRequire)
     const { status } = (permission !== undefined && sufficientBattery && connection) ?
       Array.isArray(permission) ?
         await Permissions.askAsync(...permission.map(each => permisionMap(each))) :
